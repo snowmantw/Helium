@@ -37,7 +37,14 @@ cache.connect( 'server-1:11212', function( err, conn ){
     console.log( conn.server );
 });
 
-cache.set( "hello", 1, 10000, function( err, result ){
+cache.set("hello", 1, 10000, function( err, result ){
+	if( err ) console.error( err );
+
+	console.dir( result );
+	cache.end(); // as we are 100% certain we are not going to use the connection again, we are going to end it
+});
+
+cache.get( "hello", function( err, result ){
 	if( err ) console.error( err );
 
 	console.dir( result );
