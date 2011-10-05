@@ -1,0 +1,13 @@
+{
+	"name" : "CAD_task_01-20110922",
+	"version" : "0.1.0",
+	"dependencies" : 
+	{
+		"express" : "2.2.0",
+		"ejs" : ">=0.4.3",
+		"cradle" : ">=0.5.7",
+		"node-uuid" : ">=1.2.0"
+	}
+}
+
+

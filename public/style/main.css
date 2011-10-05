@@ -1,0 +1,54 @@
+body
+{
+	background-color:#222222;
+	color:white;
+
+}
+
+div#main
+{
+	margin-left:100px;
+	margin-right:100px;
+	padding:5px 20px 10px 20px;
+	font-family:"Monospace";
+}
+
+#editor .prompt
+{
+	cursor: pointer; 
+}
+
+.name
+{
+	color:white;
+	font-family:"Monospace";
+	font-size:14pt;
+	background-color:#222222;
+	width:10em;
+	border-top:0px;
+	border-bottom:0px;
+	border-left:white 2px solid;
+	border-right:white 2px solid;
+	padding:0 0.5em 0 0.5em;
+	text-decoration:none;
+}
+
+.message
+{
+	display:inline-block;
+	max-width:45em;
+	min-width:10em;			/*To solve user can't find where to input (wher no char in it the length is 0).*/
+	font-size:14pt;
+	text-decoration:none;
+	vertical-align: top;	/* Solve iline-block text input "grow up problem"*/
+}
+
+#view
+{
+	margin-top: 1em;
+}
+
+#view .message
+{
+	margin-left: 0.6em;	/*Solve strange left align problem*/
+}
