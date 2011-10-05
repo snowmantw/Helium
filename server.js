@@ -6,11 +6,11 @@ var fs = require('fs');
 
 var DBPWD = "ZNH*(C$&";
 
-var dbconnect = new (cradle.Connection)('https://app1355379.heroku:'+DBPWD+'@app1355379.heroku.cloudant.com');
-/*
+//var dbconnect = new (cradle.Connection)('https://app1355379.heroku:'+DBPWD+'@app1355379.heroku.cloudant.com');
+
 var dbconnect = new (cradle.Connection)('140.119.164.163',5984,
 {cache:true,raw:false});
-*/
+
 var db = dbconnect.database('cad2011');
 
 db.exists(function(err,exists)
