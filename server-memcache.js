@@ -32,7 +32,7 @@ db.exists(function(err,exists)
 });
 
 
-cache.connect( '140.119.164.163:11212', function( err, conn ){
+cache.connect( 'server-1:11212', function( err, conn ){
     if( err ) throw new Error( err );
     console.log("[MEMCACHE OK!! CONNECT]" + conn.server );
 });

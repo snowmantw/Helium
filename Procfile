@@ -1,1 +1,1 @@
-web: node server-memcache.js
+web: node server.js
