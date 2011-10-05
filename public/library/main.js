@@ -94,7 +94,8 @@ function renderWall(msg)
 	jQuery(dom.message).attr('class','message').text(''+msg.message).appendTo(dom.line);
 	
 	//Inversed Order.
-	jQuery('#view').prepend(dom.line);
+	jQuery(dom.line).hide().prependTo('#view').fadeIn('fast');
+	//jQuery('#view').prepend(dom.line);
 }
 
 
