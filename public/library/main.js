@@ -212,7 +212,7 @@ function updateIDAll()
 			var txt_pmt = idx+jQuery(elm).text();
 			if(idx<10) { txt_pmt = '0'+txt_pmt; }
 			
-			var dom = document.create('span');
+			var dom = document.createElement('span');
 			jQuery(dom).text(txt_pmt).attr('class','line_index');			
 
 			return dom;
