@@ -8,7 +8,11 @@ function init()
 function initEvent()
 {
 	jQuery('#editor .prompt').click(function()
-	{ post(extract()) });
+	{ 
+		if(parseCommand(extract().name)) return;
+
+		post(extract()) 
+	});
 }
 
 function initView()
@@ -47,6 +51,11 @@ function parseCommand(name)
 	if(aslst_name_act[name])
 	{
 		renderWall({'name':name,'message':aslst_name_act[name]});
+		return true;
+	}
+	else
+	{
+		return false;
 	}
 }
 
