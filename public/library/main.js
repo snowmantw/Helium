@@ -40,7 +40,7 @@ function extract()
 
 function viewHelp()
 {
-	renderCommand({'name':'/echo','message':"Yeah, help text may display here someday.";});
+	renderCommand({'name':'/echo','message':"Yeah, help text may display here someday."});
 }
 
 function viewVersion()
