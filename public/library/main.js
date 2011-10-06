@@ -176,9 +176,13 @@ function updateIDAll()
 {
 	jQuery(".prompt").each(function (idx,elm)
 	{
-		var txt_pmt = idx+jQuery(elm).text();
-		if(idx<10) { '0'+txt_pmt; }
-		jQuery(elm).text(txt_pmt);
+		function makeText(idx)
+		{
+			var txt_pmt = idx+jQuery(elm).text();
+			if(idx<10) { txt_pmt = '0'+txt_pmt; }
+		}
+
+		jQuery(elm).text(makeText(idx));
 	});
 }
 
