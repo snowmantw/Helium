@@ -158,8 +158,9 @@ function showLineNumber()
 
 		renderWall = function(msg)
 		{
-			__renderWall(msg);
+			var rt = __renderWall(msg);
 			showLineNumber();
+			return rt;
 		}
 	}
 }
