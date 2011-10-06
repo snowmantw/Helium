@@ -191,8 +191,8 @@ function post(msgobj)
 
 	function resumePostButton(dom_pmt,dom_wait)
 	{
-		var dom_inner = jQuery(dom_wait).children()
-		jQuery(dom_pmt).prepent(dom_inner);
+		var dom_inner = jQuery(dom_wait).children();
+		jQuery(dom_pmt).prepend(dom_inner);
 		jQuery(dom_wait).replaceWith(dom_pmt);
 		initEventPrompt();
 		blinkPrompt();
