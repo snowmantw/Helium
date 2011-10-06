@@ -113,7 +113,7 @@ function post(msgobj)
 	{
 		jQuery(dom_wait).replaceWith(dom_pmt);
 		initEvent();
-		blinkPrompt();
+		//blinkPrompt();
 	}
 
 	blockPostButton(dom_pmt,dom_wait);
