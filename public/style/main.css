@@ -13,6 +13,12 @@ div#main
 	font-family:"Monospace";
 }
 
+.prompt
+{
+	width:20px;
+	height:20px;
+}
+
 #editor .prompt
 {
 	cursor: pointer; 
