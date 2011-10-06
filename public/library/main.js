@@ -40,22 +40,32 @@ function extract()
 
 function viewHelp()
 {
-	renderCommand({'name':'/echo','message':"Yeah, help text may display here someday."});
+	renderCommand({'name':'/help','message':"Yeah, help text may display here someday."});
 }
 
 function viewVersion()
 {
-	renderCommand({'name':'/echo','message':"1.2.3"});
+	renderCommand({'name':'/version','message':"1.2.3"});
 }
 
 function viewClean()
 {
-	jQuery('#view').empty();
+	jQuery('#view .line').hide();
 }
 
-function viewEcho(message)
+function viewShow()
+{
+	jQuery('#view .line').show();
+}
+
+function viewEcho(name,message)
 {
 	renderCommand({'name':'/echo','message':message});
+}
+
+function viewMail(name,message)
+{
+	renderCommand({'name':name,'message':"Not implemente yet!"});
 }
 
 function parseCommand(msg)
@@ -67,7 +77,9 @@ function parseCommand(msg)
 		aslst_name_act["/help"] = viewHelp;
 		aslst_name_act["/version"] = viewVersion;
 		aslst_name_act["/clean"] = viewClean;
+		aslst_name_act["/show"] = viewShow;
 		aslst_name_act["/echo"] = viewEcho;
+		aslst_name_act["/mail"] = viewMail;
 
 		return aslst_name_act;
 	}
@@ -75,7 +87,7 @@ function parseCommand(msg)
 	aslst_name_act = registerCommand();
 	if(aslst_name_act[name])
 	{
-		aslst_name_act[name](message);
+		aslst_name_act[name](name,message);
 		return true;
 	}
 	else
@@ -144,7 +156,7 @@ function renderWall(msg)
 	jQuery(dom.message).attr('class','message').text(''+msg.message).appendTo(dom.line);
 	
 	//Inversed Order.
-	jQuery(dom.line).hide().prependTo('#view').fadeIn('fast');
+	jQuery(dom.line).attr('class','line').hide().prependTo('#view').fadeIn('fast');
 	//jQuery('#view').prepend(dom.line);
 
 	return dom;
