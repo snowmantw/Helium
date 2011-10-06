@@ -52,7 +52,7 @@ function parseCommand(name)
 	aslst_name_act = registerCommand();
 	if(aslst_name_act[name])
 	{
-		renderWall({'name':name,'message':aslst_name_act[name]() });
+		renderCommand({'name':name,'message':aslst_name_act[name]() });
 		return true;
 	}
 	else
@@ -123,6 +123,17 @@ function renderWall(msg)
 	//Inversed Order.
 	jQuery(dom.line).hide().prependTo('#view').fadeIn('fast');
 	//jQuery('#view').prepend(dom.line);
+
+	return dom;
+}
+
+function renderCommand(msg)
+{
+	var dom = renderWall(msg);
+	jQuery(dom.name).attr('class','.cmd_name'+' '+jQuery(dom.name).attr('class'));
+	jQuery(dom.message).attr('class','.cmd_message'+' '+jQuery(dom.message).attr('class'));
+
+	return dom;
 }
 
 

@@ -52,3 +52,13 @@ div#main
 {
 	margin-left: 0.6em;	/*Solve strange left align problem*/
 }
+
+.cmd_name
+{
+	color : #66FF99;
+}
+
+.cmd_message
+{
+	color : #CCFF66;
+}
