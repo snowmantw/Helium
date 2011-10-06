@@ -91,6 +91,7 @@ function viewMail(name,message)
 
 function viewLineNumber(name,message)
 {
+	updateIDAll();
 	switch(message.toLowerCase())
 	{
 		case 'on' : 	
@@ -98,7 +99,7 @@ function viewLineNumber(name,message)
 		break;
 
 		case 'off' :
-			hideLineNumber
+			hideLineNumber();
 		break;
 
 		default:
