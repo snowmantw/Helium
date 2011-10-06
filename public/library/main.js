@@ -151,12 +151,13 @@ function showLineNumber()
 	//Works ?? Yes, it works!
 	if(! __renderWall) 
 	{ 
+		//Save exists one.
 		__renderWall = renderWall;
 
 		renderWall = function(msg)
 		{
 			__renderWall(msg);
-			showLineNumber()
+			showLineNumber();
 		}
 	}
 }
@@ -168,6 +169,8 @@ function hideLineNumber()
 	jQuery('.line_index').hide();
 
 	renderWall = __renderWall;
+	__renderWall = null;
+	delete __renderWall;
 }
 
 function post(msgobj)
