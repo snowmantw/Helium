@@ -130,8 +130,8 @@ function renderWall(msg)
 function renderCommand(msg)
 {
 	var dom = renderWall(msg);
-	jQuery(dom.name).attr('class','.cmd_name'+' '+jQuery(dom.name).attr('class'));
-	jQuery(dom.message).attr('class','.cmd_message'+' '+jQuery(dom.message).attr('class'));
+	jQuery(dom.name).attr('class','cmd_name'+' '+jQuery(dom.name).attr('class'));
+	jQuery(dom.message).attr('class','cmd_message'+' '+jQuery(dom.message).attr('class'));
 
 	return dom;
 }
