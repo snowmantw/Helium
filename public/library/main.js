@@ -98,6 +98,26 @@ function parseCommand(msg)
 
 function post(msgobj)
 {
+	var dom_pmt  = jQuery('#editor .prompt')[0];
+	var dom_wait = document.createElement('span');
+
+	function blockPostButton(dom_pmt,dom_wait)
+	{
+		//Lock post button to prevent user post again.
+
+		jQuery(dom_wait).html();	//Fill the "waiting" graphic.
+		jQuery(dom_pmt).replaceWith(dom_wait);
+	}
+
+	function resumePostButton(dom_pmt,dom_wait)
+	{
+		jQuery(dom_wait).replaceWith(dom_pmt);
+		initEvent();
+		blinkPrompt();
+	}
+
+	blockPostButton(dom_pmt,dom_wait);
+
 	jQuery.ajax(
 	{
 		url: '/postMessage',
@@ -108,6 +128,11 @@ function post(msgobj)
 		success : function(idobj)
 		{
 			appendNew(idobj.id);
+			resumePostButton(dom_pmt,dom_wait);
+		},
+		error : function()
+		{
+			console.log("Post message error!");
 		}
 	});
 }
