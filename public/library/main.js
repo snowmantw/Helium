@@ -8,6 +8,7 @@ function init()
 function initEvent()
 {
 	initEventPrompt();
+	initEventInput();
 }
 
 function initEventPrompt()
