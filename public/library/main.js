@@ -209,11 +209,10 @@ function updateIDAll()
 	{
 		function makeIndexDOM(idx)
 		{
-			var txt_pmt = idx+jQuery(elm).text();
-			if(idx<10) { txt_pmt = '0'+txt_pmt; }
+			if(idx<10) { idx = '0' + idx; }
 			
 			var dom = document.createElement('span');
-			jQuery(dom).text(txt_pmt).attr('class','line_index');			
+			jQuery(dom).text(idx).attr('class','line_index');			
 
 			return dom;
 		}
