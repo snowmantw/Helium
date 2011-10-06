@@ -4,12 +4,17 @@ var express = require('express');
 var uuid = require('node-uuid');
 var fs = require('fs');
 
-var DBPWD = "ZNH*(C$&";
+//TODO: Bad. Should be a env variable.
+//TODO: Bad AGAIN : No httpS supported in cradle...?
+var DBURL = 'https://app1355379.heroku.cloudant.com';
+var DBAUTH= {username:'app1355379.heroku',password:'VJ3hyQ0avK8SV8qiFf8dCcvw'};
+var DBPORT= 443;
 
-//var dbconnect = new (cradle.Connection)('https://app1355379.heroku:'+DBPWD+'@app1355379.heroku.cloudant.com');
+//var DBURL = '140.119.164.163';
+//var DBPORT= 5984;
 
-var dbconnect = new (cradle.Connection)('140.119.164.163',5984,
-{cache:true,raw:false});
+var dbconnect = new (cradle.Connection)(DBURL,DBPORT,
+{cache:true,raw:false,auth:DBAUTH});
 
 var db = dbconnect.database('cad2011');
 
@@ -49,6 +54,17 @@ app.get('/',function(req,res){
 
 app.get('/fetchAll',function(req,res){
 	db.all(function(err,arrinfo){
+		if(err)
+		{
+			console.log(err);
+			throw new Error();
+		}
+
+		if(0 == arrinfo.length)
+		{
+			res.send(JSON.stringify([]));
+			return ;
+		}
 		var arrmsg = [];
 
 		for(var itr in arrinfo)
@@ -75,7 +91,13 @@ app.get('/fetch',function(req,res)
 {
 	db.get(req.param('id'),function(err,json_data)
 	{
-		var doc = JSON.parse(json_data);
+		try{
+			var doc = JSON.parse(json_data);
+		}catch(er)
+		{
+			console.log(er);
+			throw new Error();
+		}
 		res.send(JSON.stringify({'name':doc.name,'message':doc.message}));
 	});
 });
