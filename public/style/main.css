@@ -30,7 +30,7 @@ div#main
 
 .line_index
 {
-
+	color : yellow;
 }
 
 .name
@@ -80,10 +80,10 @@ div#main
 
 .err_name
 {
-	color : yellow;
+	color : #FF3333;
 }
 
 .err_message
 {
-	color: yellow;
+	color: #FF3333;
 }
