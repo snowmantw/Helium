@@ -184,12 +184,15 @@ function post(msgobj)
 	{
 		//Lock post button to prevent user post again.
 
-		jQuery(dom_wait).text('!');	//Fill the "waiting" graphic.
-		jQuery(dom_pmt).replaceWith(dom_wait);
+		var dom_inner = jQuery(dom_pmt).children()
+		jQuery(dom_wait).text('!').prepend(dom_inner);	
+		jQuery(dom_pm).replaceWith(dom_wait);
 	}
 
 	function resumePostButton(dom_pmt,dom_wait)
 	{
+		var dom_inner = jQuery(dom_wait).children()
+		jQuery(dom_pmt).prepent(dom_inner);
 		jQuery(dom_wait).replaceWith(dom_pmt);
 		initEventPrompt();
 		blinkPrompt();
