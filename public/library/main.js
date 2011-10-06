@@ -93,24 +93,18 @@ function viewMail(name,message)
 
 function viewLineNumber(name,message)
 {
-
 	switch(message.toLowerCase())
 	{
 		case 'on' : 	
 			renderCommand({'name':'/linenumber','message':'on'});
-			updateIDAll();
-			showLineNumber();
 		break;
 
 		case 'off' :
 			renderCommand({'name':'/linenumber','message':'off'});
-			updateIDAll();
-			hideLineNumber();
 		break;
 
 		default:
 			renderError({'name':'ERROR','message':'linenumber {on|off}'});
-			updateIDAll();
 	}
 }
 
@@ -171,8 +165,11 @@ function hideLineNumber()
 	//Remove attached fn in mixed fn!
 	jQuery('.line_index').hide();
 
-	renderWall = __renderWall;
-	__renderWall = null;
+	if(null != __renderWall)
+	{
+		renderWall = __renderWall;
+		__renderWall = null;
+	}
 }
 
 function post(msgobj)
