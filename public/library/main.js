@@ -44,7 +44,9 @@ function parseCommand(name)
 	{
 		var aslst_name_act = {};
 		aslst_name_act["/help"] = function(){ return "Yeah, help text may display here someday."; };
-		aslst_name_act["/version"] = function(){ return "1 1 2"; };
+		aslst_name_act["/version"] = function(){ return "1.1.2"; };
+
+		return aslst_name_act;
 	}
 
 	aslst_name_act = registerCommand();
