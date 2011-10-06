@@ -97,10 +97,12 @@ function viewLineNumber(name,message)
 	{
 		case 'on' : 	
 			renderCommand({'name':'/linenumber','message':'on'});
+			showLineNumber();
 		break;
 
 		case 'off' :
 			renderCommand({'name':'/linenumber','message':'off'});
+			hideLineNumber();
 		break;
 
 		default:
@@ -161,8 +163,6 @@ function showLineNumber()
 
 function hideLineNumber()
 {
-	//TODO: 用 AOP 將此設定關閉後，每個 render 都必須 updateId 的行為植入！
-	//Remove attached fn in mixed fn!
 	jQuery('.line_index').hide();
 
 	if(null != __renderWall)
