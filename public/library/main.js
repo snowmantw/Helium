@@ -186,7 +186,7 @@ function post(msgobj)
 
 		var dom_inner = jQuery(dom_pmt).children()
 		jQuery(dom_wait).text('!').prepend(dom_inner);	
-		jQuery(dom_pm).replaceWith(dom_wait);
+		jQuery(dom_pmt).replaceWith(dom_wait);
 	}
 
 	function resumePostButton(dom_pmt,dom_wait)
