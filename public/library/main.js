@@ -91,19 +91,24 @@ function viewMail(name,message)
 
 function viewLineNumber(name,message)
 {
-	updateIDAll();
+
 	switch(message.toLowerCase())
 	{
 		case 'on' : 	
+			renderCommand({'name':'/linenumber','message':'on'});
+			updateIDAll();
 			showLineNumber();
 		break;
 
 		case 'off' :
+			renderCommand({'name':'/linenumber','message':'off'});
+			updateIDAll();
 			hideLineNumber();
 		break;
 
 		default:
 			renderError({'name':'ERROR','message':'linenumber {on|off}'});
+			updateIDAll();
 	}
 }
 
@@ -139,11 +144,25 @@ function parseCommand(msg)
 function showLineNumber()
 {
 	jQuery('.line_index').show();
+
+	//用 AOP 將此設定打開後，每個 render 都必須 updateId 的行為植入！
+	//TODO: Works ??
+	__renderWall = renderWall;
+
+	renderWall = function()
+	{
+		renderWall();
+		updateIDAll();
+	}
 }
 
 function hideLineNumber()
 {
+	//TODO: 用 AOP 將此設定關閉後，每個 render 都必須 updateId 的行為植入！
+	//Remove attached fn in mixed fn!
 	jQuery('.line_index').hide();
+
+	renderWall = __renderWall;
 }
 
 function post(msgobj)
@@ -201,6 +220,7 @@ function appendNew(idmsg)
 	});
 }
 
+//TODO: This is a very ineffect way. More works should be done.
 function updateIDAll()
 {
 	//Clean exists.
@@ -257,7 +277,6 @@ function renderWall(msg)
 	//Inversed Order.
 	jQuery(dom.line).attr('class','line').hide().prependTo('#view').fadeIn('fast');
 	//jQuery('#view').prepend(dom.line);
-
 	return dom;
 }
 
