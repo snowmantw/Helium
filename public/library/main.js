@@ -7,11 +7,23 @@ function init()
 
 function initEvent()
 {
+	initEventPrompt();
+}
+
+function initEventPrompt()
+{
 	jQuery('#editor .prompt').click(function()
 	{ 
-		if(parseCommand(extract())) return;
+		submit();
+	});
+}
 
-		post(extract()) 
+function initEventInput()
+{
+	jQuery('.name').live('keypress',function(event)
+	{
+		if(event.which == 13 || event.keyCode == 13)
+		{ submit(); }
 	});
 }
 
@@ -21,6 +33,14 @@ function initView()
 	jQuery('#editor .message').attr('contentEditable','true');
 	blinkPrompt();
 	
+}
+
+//Submit info inputed.
+function submit()
+{
+	if(parseCommand(extract())) return;
+
+	post(extract());
 }
 
 function blinkPrompt()
@@ -112,7 +132,7 @@ function post(msgobj)
 	function resumePostButton(dom_pmt,dom_wait)
 	{
 		jQuery(dom_wait).replaceWith(dom_pmt);
-		initEvent();
+		initEventPrompt();
 		blinkPrompt();
 	}
 
