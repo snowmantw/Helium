@@ -143,10 +143,12 @@ function parseCommand(msg)
 
 function showLineNumber()
 {
+	updateIDAll();
+
 	jQuery('.line_index').show();
 
 	//用 AOP 將此設定打開後，每個 render 都必須 updateId 的行為植入！
-	//TODO: Works ??
+	//Works ?? Yes, it works!
 	__renderWall = renderWall;
 
 	renderWall = function()
