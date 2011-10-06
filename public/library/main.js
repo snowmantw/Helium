@@ -47,7 +47,7 @@ function parseCommand(name)
 		aslst_name_act["/version"] = function(){ return "1 1 2"; };
 	}
 
-	registerCommand();
+	aslst_name_act = registerCommand();
 	if(aslst_name_act[name])
 	{
 		renderWall({'name':name,'message':aslst_name_act[name]});
