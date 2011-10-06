@@ -34,6 +34,22 @@ function extract()
 	};
 }
 
+function parseCommand(name)
+{
+	function registerCommand()
+	{
+		var aslst_name_act = {};
+		aslst_name_act["/help"] = function(){ return "Yeah, help text may display here someday."; };
+		aslst_name_act["/version"] = function(){ return "1 1 2"; };
+	}
+
+	registerCommand();
+	if(aslst_name_act[name])
+	{
+		renderWall({'name':name,'message':aslst_name_act[name]});
+	}
+}
+
 function post(msgobj)
 {
 	jQuery.ajax(
