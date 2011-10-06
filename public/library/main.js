@@ -137,12 +137,12 @@ function parseCommand(msg)
 
 function showLineNumber()
 {
-	jQuery('line_index').show();
+	jQuery('.line_index').show();
 }
 
 function hideLineNumber()
 {
-	jQuery('line_index').hide();
+	jQuery('.line_index').hide();
 }
 
 function post(msgobj)
@@ -203,7 +203,7 @@ function appendNew(idmsg)
 function updateIDAll()
 {
 	//Clean exists.
-	jQuery('line_index').remove();
+	jQuery('.line_index').remove();
 
 	jQuery('.prompt').each(function (idx,elm)
 	{
