@@ -151,9 +151,9 @@ function showLineNumber()
 	//Works ?? Yes, it works!
 	__renderWall = renderWall;
 
-	renderWall = function()
+	renderWall = function(msg)
 	{
-		__renderWall();
+		__renderWall(msg);
 		updateIDAll();
 	}
 }
