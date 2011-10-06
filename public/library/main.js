@@ -52,7 +52,7 @@ function parseCommand(name)
 	aslst_name_act = registerCommand();
 	if(aslst_name_act[name])
 	{
-		renderWall({'name':name,'message':aslst_name_act[name]});
+		renderWall({'name':name,'message':aslst_name_act[name]() });
 		return true;
 	}
 	else
