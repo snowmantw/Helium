@@ -151,7 +151,7 @@ function showLineNumber()
 
 	renderWall = function()
 	{
-		renderWall();
+		__renderWall();
 		updateIDAll();
 	}
 }
