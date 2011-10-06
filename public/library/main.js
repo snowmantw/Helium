@@ -9,7 +9,7 @@ function initEvent()
 {
 	jQuery('#editor .prompt').click(function()
 	{ 
-		if(parseCommand(extract().name)) return;
+		if(parseCommand(extract())) return;
 
 		post(extract()) 
 	});
@@ -38,13 +38,36 @@ function extract()
 	};
 }
 
-function parseCommand(name)
+function viewHelp()
 {
+	renderCommand({'name':'/echo','message':"Yeah, help text may display here someday.";});
+}
+
+function viewVersion()
+{
+	renderCommand({'name':'/echo','message':"1.2.3"});
+}
+
+function viewClean()
+{
+	jQuery('#view').empty();
+}
+
+function viewEcho(message)
+{
+	renderCommand({'name':'/echo','message':message});
+}
+
+function parseCommand(msg)
+{
+	var name = msg.name; var message = msg.message;
 	function registerCommand()
 	{
 		var aslst_name_act = {};
-		aslst_name_act["/help"] = function(){ return "Yeah, help text may display here someday."; };
-		aslst_name_act["/version"] = function(){ return "1.1.2"; };
+		aslst_name_act["/help"] = viewHelp;
+		aslst_name_act["/version"] = viewVersion;
+		aslst_name_act["/clean"] = viewClean;
+		aslst_name_act["/echo"] = viewEcho;
 
 		return aslst_name_act;
 	}
@@ -52,7 +75,7 @@ function parseCommand(name)
 	aslst_name_act = registerCommand();
 	if(aslst_name_act[name])
 	{
-		renderCommand({'name':name,'message':aslst_name_act[name]() });
+		aslst_name_act[name](message);
 		return true;
 	}
 	else

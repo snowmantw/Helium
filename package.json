@@ -1,6 +1,6 @@
 {
 	"name" : "CAD_task_01-20110922",
-	"version" : "0.1.0",
+	"version" : "1.2.3",
 	"dependencies" : 
 	{
 		"express" : "2.2.0",
