@@ -149,12 +149,15 @@ function showLineNumber()
 
 	//用 AOP 將此設定打開後，每個 render 都必須 updateId 的行為植入！
 	//Works ?? Yes, it works!
-	__renderWall = renderWall;
+	if(! __renderWall) 
+	{ 
+		__renderWall = renderWall;
 
-	renderWall = function(msg)
-	{
-		__renderWall(msg);
-		updateIDAll();
+		renderWall = function(msg)
+		{
+			__renderWall(msg);
+			updateIDAll();
+		}
 	}
 }
 
