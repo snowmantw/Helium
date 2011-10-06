@@ -172,6 +172,14 @@ function appendNew(idmsg)
 	});
 }
 
+function updateIDAll()
+{
+	jQuery(".prompt").each(function (idx,elm)
+	{
+		jQuery(elm).text(idx+jQuery(elm).text());
+	});
+}
+
 function updateAll()
 {
 	jQuery.ajax(
