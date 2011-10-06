@@ -1,5 +1,7 @@
 function init()
 {
+	__renderWall = null;
+
 	initEvent();
 	initView();
 	updateAll();
@@ -149,7 +151,7 @@ function showLineNumber()
 
 	//用 AOP 將此設定打開後，每個 render 都必須 updateId 的行為植入！
 	//Works ?? Yes, it works!
-	if(undefined ==__renderWall) 
+	if(null ==__renderWall) 
 	{ 
 		//Save exists one.
 		__renderWall = renderWall;
@@ -170,7 +172,6 @@ function hideLineNumber()
 
 	renderWall = __renderWall;
 	__renderWall = null;
-	delete __renderWall;
 }
 
 function post(msgobj)
