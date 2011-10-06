@@ -212,7 +212,7 @@ function updateIDAll()
 			if(idx<10) { idx = '0' + idx; }
 			
 			var dom = document.createElement('span');
-			jQuery(dom).text(idx).attr('class','line_index');			
+			jQuery(dom).text(idx).attr('class','line_index').hide();
 
 			return dom;
 		}
