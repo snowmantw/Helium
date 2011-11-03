@@ -5,6 +5,7 @@ var mongoose = require('mongoose');
 
 var model = require('./model.js');
 var enumeration = require('./enumeration.js');
+var lists3 = require('./lists3.js');
 
 MODELS = [];
 
@@ -334,10 +335,36 @@ app.post('/saveLine',function(req,res){
 
 });
 
+app.get('/listFile',function(req,res){
+
+	lists3.client.get('/').on('response', function(res){
+		if('200' == res.statusCode)
+		{
+			res.setEncoding('utf8');
+			res.on('data', function(xml){
+				var finfos = (JSON.parse((parser.toJson(xml)))
+								.ListBucketResult
+								.Contents);
+				var fnames = [];
+				for(var itr = 0 ; itr != finfos.length ; itr++)
+				{
+					var finfo = finfos[itr];
+					fnames.push(finfo.Key);
+				}
+				res.end(JSON.stringify({'fnames':fnames});
+			});
+		}
+	}).end();
+
+});
+
+
 
 initializeDatabase();
 var port = process.env.PORT || 3000
 app.listen(port,function(){
 	console.log("Listen on " + port);
 });
+
+
 

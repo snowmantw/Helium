@@ -1,11 +1,13 @@
 {
-	"name" : "CAD_task_03",
-	"version" : "1.2.3",
+	"name" : "CAD_task_03_05",
+	"version" : "3.5.8",
 	"dependencies" : 
 	{
-		"express" : "2.2.0",
+		"express" : ">=2.2.0",
 		"ejs" : ">=0.4.3",
-		"mongoose" : ">=2.3.6"
+		"mongoose" : ">=2.3.6",
+		"xml2json" : ">=0.2.3",
+		"knox" : ">=0.0.9"
 	}
 }
 
