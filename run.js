@@ -338,11 +338,11 @@ app.post('/saveLine',function(req,res){
 
 app.get('/listFile',function(req,res){
 
-	lists3.client.get('/').on('response', function(res){
-		if('200' == res.statusCode)
+	lists3.client.get('/').on('response', function(fres){
+		if('200' == fres.statusCode)
 		{
-			res.setEncoding('utf8');
-			res.on('data', function(xml){
+			fres.setEncoding('utf8');
+			fres.on('data', function(xml){
 				var finfos = (JSON.parse((parser.toJson(xml)))
 								.ListBucketResult
 								.Contents);
