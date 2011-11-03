@@ -115,3 +115,30 @@ function receiverPost(post)
 	updatePostWall(post);
 	jQuery('#'+config.id.wall.post.post).click(listenerShowPostWall);
 }
+
+/*
+ * Handling the file infomations received event.
+ * 
+ * @param {fnames:[String]} finfos
+ * @return None
+ * @require jQuery
+ * @modify The view.
+ * @effect Render and binding event on the post wall 
+ *			and show them on the view.
+ */
+function receiverListFile(finfos)
+{
+	var strlist = "";
+	if(0 != finfos.fnames.length)
+	{
+		strlist = finfos.fnames[0];
+		for(var itr = 1 ;finfos.fnames.length;itr++)
+		{
+			var fname = finfos.fnames[itr];
+			strlist += (';;'+fname);
+		}
+	}
+
+	handlerNewLine(config.instruction.list.file.name,strlist
+					,enumeration.type.line.log);
+}

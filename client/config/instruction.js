@@ -14,4 +14,14 @@ config.instruction.linenumber.off = 'off';
 config.instruction.linenumber.error = "ERROR : Usage : /linenumber [on|off]";
 
 config.instruction.read = {};
-config.instruction.read.error = '無法讀取指定行：該行內容可能不是文章';
+config.instruction.read.error = "無法讀取指定行：該行內容可能不是文章";
+
+config.instruction.list = {};
+
+config.instruction.list.error = "ERROR : Usage : /list [file]";
+
+config.instruction.list.type = {};
+config.instruction.list.type.file = 'file'; 
+
+config.instruction.list.file = {};
+config.instruction.list.file.name = '[List Files]';

@@ -21,4 +21,3 @@ config.attribute.comment.truncated_rest = '__rest_text';
 config.attribute.post = {};
 config.attribute.post.id = '__post_id';
 config.attribute.post.date = '__post_date';
-

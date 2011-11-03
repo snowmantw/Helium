@@ -246,7 +246,7 @@ function handlerRead(name,lid)
  * 
  * @note If set shell mode, field `__on` will be true.
  *		  And it's counter part's function will be false.
- * @param String name: 'read' instruction name.
+ * @param String name: 'shell' instruction name.
  * @return None
  * @modify The database and view.
  * @effect Write a new log for this instruction 
@@ -267,5 +267,32 @@ function handlerShell(params)
 	if(undefined != handlerNewLine.__orig)
 	{
 		handlerNewLine = handlerNewLine.__orig;
+	}
+}
+
+/*
+ * Handler of `/list` instruction.
+ * 
+ * @param String name: 'list' instruction name.
+ * @param String type: list what? option avaliable : 'file'
+ * @return None
+ * @modify The database and view.
+ * @effect Write a new log for this instruction 
+ *			and change the view to shell mode.
+ *
+ */
+function handleList(name,type)
+{
+	switch(type)
+	{
+		case config.instruction.list.type.file:
+			async_fetchListFile(receiverListFile);
+			handlerNewLine('/list',config.instruction.list.type.file
+								,enumeration.type.line.instruction);
+		break;
+
+		default:
+			handlerNewLine('/list',config.instruction.list.error
+								,enumeration.type.line.error);
 	}
 }
