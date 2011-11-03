@@ -391,6 +391,21 @@ app.get('/fetchListBucket',function(req,res){
 });
 
 
+app.post('/uploadFile',function(req,res){
+
+	req.form.complete(function(err, fields, files){
+		if (err) {
+		  next(err);
+		} else {
+		  console.log('\nuploaded %s to %s'
+			, files.file.filename
+			, files.file.path);
+		  res.redirect('/');
+		}
+	  });
+})
+
+
 
 initializeDatabase();
 var port = process.env.PORT || 3000
