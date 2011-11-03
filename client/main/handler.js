@@ -342,10 +342,22 @@ function handlerUploadFile()
 					 .appendTo(dom_form);	
 	jQuery(dom_trigger).attr({'type':'button'}).val('上傳')
 					 .click(function(){
-						var fname = jQuery(this).find('input[name="file"]').val();
-						handlerNewLine('/upload',"(非標準未處理檔名)："+fname
-											,enumeration.type.line.instruction);
-						jQuery(dom_form).submit();
+							var fname = jQuery(this)
+											.find('input[name="file"]').val();
+
+							var line = new Line(null
+												,enumeration.type.line.instruction
+												,'/upload'
+												,"(非標準未處理檔名)："+fname
+												,(new Date(Date.now()).getTime()));
+
+							//Save, refetch and update all.
+							async_saveLine(line,function(idobj){
+								async_fetchLineAll(function(lines){
+									receiverLines(lines);
+									jQuery(dom_form).submit();
+								});
+							});
 					  })
 					 .appendTo(dom_form);
 	
