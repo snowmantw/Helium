@@ -281,7 +281,7 @@ function handlerShell(params)
  *			and change the view to shell mode.
  *
  */
-function handleList(name,type)
+function handlerList(name,type)
 {
 	switch(type)
 	{
