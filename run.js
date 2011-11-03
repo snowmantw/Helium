@@ -57,6 +57,8 @@ app.configure(function()
 	app.use('/style',express.static( cbuildir + '/style'));
 	app.use('/media',express.static( cbuildir + '/media'));
 	app.use('/config',express.static( cbuildir + '/config'));
+
+	form({ keepExtensions: true });
 });
 
 app.get('/',function(req,res){
@@ -393,6 +395,9 @@ app.get('/fetchListBucket',function(req,res){
 
 
 app.post('/uploadFile',function(req,res){
+
+	if(undefined == req.form)
+	{ res.end("No upload form component!"); }
 
 	req.form.complete(function(err, fields, files){
 		if (err) {
