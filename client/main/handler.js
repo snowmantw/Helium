@@ -349,7 +349,7 @@ function handlerUploadFile()
 
 	jQuery(dom_form).submit(function(){
 			var fname = jQuery(this).find('input[name="file"]').val();
-			handlerNewLine('/upload',"(非標準未處理檔名)："fname
+			handlerNewLine('/upload',"(非標準未處理檔名)："+fname
 								,enumeration.type.line.instruction);
 			
 		})
