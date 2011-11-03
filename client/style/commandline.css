@@ -1,0 +1,15 @@
+
+#command
+{
+	margin-bottom: 1em;
+}
+
+#command .command_prompt
+{
+	cursor: pointer; 
+}
+
+.command_enter
+{
+	text-decoration:none;
+}

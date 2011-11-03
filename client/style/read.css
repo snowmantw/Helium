@@ -1,0 +1,184 @@
+
+#read
+{
+	
+}
+
+#wrapper
+{
+	width:100%;
+	margin-right:-200px;
+	float:left;
+}
+
+#wall_comment .comment
+{
+	cursor:pointer;
+	margin-bottom:1em;
+	border-radius:5px;
+	background-color:#3B3B3B;
+	padding:5px;
+	opacity:0.6;
+}
+
+#wall_comment .comment:hover
+{
+	opacity:1.0;
+}
+
+#wall_comment .comment_focus
+{
+	opacity:1.0;
+}
+
+
+#wall_comment .comment_infomation span
+{
+	display:block;
+}
+
+#wall_comment .comment_infomation
+{
+	margin-bottom: 7px;
+}
+
+#wall_feedback
+{
+	min-height:1em;
+}
+
+#wall_post
+{
+	cursor:pointer;
+	margin-bottom:1em;
+	/*border-radius:5px;*/
+	/*background-color:#3B3B3B;*/
+	border-bottom: white 2px dotted;
+	padding:5px;
+	padding-bottom:1em;
+}
+
+#wall_post_title
+{
+	/*opacity:0.6;*/
+}
+
+#wall_post *:hover
+{
+	opacity:1.0;
+}
+
+#wall_post .comment
+{
+	opacity:0.6;
+}
+
+#wall_post .comment_focus
+{
+	opacity:1.0;
+}
+
+#wall_post .comment:hover
+{
+	opacity:1.0;
+}
+
+#wall_post .comment_infomation
+{
+	margin-bottom: 7px;
+}
+
+#wall_post .comment_infomation span
+{
+	display:block;
+}
+
+#wall_post .wall_post_title
+{
+	/*padding: 4px;*/
+	/*border-radius: 4px;*/
+	background-color:#303030;
+	margin:0 0 5px 0;
+}
+
+#post
+{
+	padding-left: 1em;
+	margin-right: 240px;
+}
+
+.post_head
+{
+
+}
+
+.post_content
+{
+	
+	margin-bottom: 10px;
+}
+
+.post_footnote .post_author
+{
+	margin-right: 5px;
+	color: yellow;
+}
+
+.post_footnote .post_date
+{
+	margin-left: 5px;
+	color: #55ff55;
+}
+
+#sidebar
+{
+	width:200px;
+	float:left;
+}
+
+#read_title
+{
+
+}
+
+.line
+{
+
+}
+
+.line_index
+{
+	color : yellow;
+}
+
+.line_name
+{
+	color:white;
+	font-family:"Monospace";
+	font-size:14pt;
+	background-color:#222222;
+	width:10em;
+	border-top:0px;
+	border-bottom:0px;
+	border-left:white 2px solid;
+	border-right:white 2px solid;
+	padding:0 0.5em 0 0.5em;
+	text-decoration:none;
+}
+
+.line_content
+{
+	display:inline-block;
+	max-width:45em;
+
+	/*To solve user can't find where to input*/
+	/* (where no char in it the length is 0).*/
+	min-width:10em;			
+
+	font-size:14pt;
+	text-decoration:none;
+
+	/* Solve iline-block text */
+	/*input "grow up problem"*/
+	vertical-align: top;	
+}

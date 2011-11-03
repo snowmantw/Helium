@@ -1,0 +1,84 @@
+
+.line
+{
+
+}
+
+
+.line_name
+{
+	color:white;
+	font-family:"Monospace";
+	font-size:14pt;
+	background-color:#222222;
+	width:10em;
+	border-top:0px;
+	border-bottom:0px;
+	border-left:white 2px solid;
+	border-right:white 2px solid;
+	padding:0 0.5em 0 0.5em;
+	text-decoration:none;
+}
+
+.line_content
+{
+	display:inline-block;
+	max-width:45em;
+
+	/*To solve user can't find where to input*/
+	/* (where no char in it the length is 0).*/
+	min-width:10em;			
+
+	font-size:14pt;
+	text-decoration:none;
+
+	/* Solve iline-block text */
+	/*input "grow up problem"*/
+	vertical-align: top;	
+}
+
+.line_index
+{
+	color : yellow;
+}
+
+.log_name
+{
+
+}
+
+.log_content
+{
+
+}
+
+.error_name
+{
+	color: yellow;
+}
+
+.error_content
+{
+	color: yellow;
+}
+
+.instruction_name
+{
+	color: #55ff55;
+}
+
+.instruction_content
+{
+	color: #55ff55;
+}
+
+.wall_line
+{
+
+}
+
+.wall_line .line_content
+{
+	margin-left: 0.6em;	/*Solve strange left align problem*/
+}
+
