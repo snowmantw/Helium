@@ -409,7 +409,7 @@ app.post('/uploadFile',function(req,res){
 			//No need to do anything more to get val.
 			var bucket = fields.bucket;	
 			var name = files.file.filename;
-			var tmp_path = files.file.filename;
+			var tmp_path = files.file.path;
 
 			var client = lists3.client(bucket);
 
