@@ -17,6 +17,8 @@ function async_fetchListFileBucket(bucket,fn_success,fn_error)
 		'url': config.api.fetchListFileBucket,
 		'type': 'GET',
 		'dataType': 'json',
+		'contentType':'application/json',
+		'data':{'bucket':bucket},
 		'success': fn_success,
 		'error': fn_error
 	});

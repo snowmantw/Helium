@@ -230,7 +230,8 @@ function handlerRead(name,lid)
 
 	handlerNewLine = function(name,content,type)
 	{
-		var dom_title = jQuery('#'+config.id.title).find('.'+config.styleclass.post.title)[0];
+		var dom_title = jQuery('#'+config.id.title)
+						.find('.'+config.styleclass.post.title)[0];
 		var orig = jQuery(dom_title).text();
 
 		jQuery(dom_title).text(name+' -- '+content).fadeOut(3000,function(){
