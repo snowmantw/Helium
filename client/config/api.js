@@ -4,6 +4,7 @@ config.api = {};
 config.api.fetchUIShell = '/fetchUIShell';
 config.api.fetchUIRead = '/fetchUIRead';
 config.api.fetchPost = '/fetchPost';
+config.api.fetchListFile = '/fetchListFile';
 config.api.fetchRecordAll = '/fetchRecordAll';
 config.api.fetchLineAll = '/fetchLineAll';
 config.api.fetchSummary = '/fetchSummary';

@@ -1,4 +1,27 @@
 
+
+/*
+ * List S3's file infos.
+ * 
+ * @param Function fn_success
+ * @param Function fn_error
+ * @receive String: {'fnames':[]}
+ * @return None
+ * @require None
+ * @modify Data flow.
+ * @effect Receive the data and forward it to the handler.
+ */
+function async_fetchListFile(fn_success,fn_error)
+{
+	jQuery.ajax({
+		'url': config.api.fetchListFile,
+		'type': 'GET',
+		'dataType': 'json',
+		'success': fn_success,
+		'error': fn_error
+	});
+}
+
 /*
  * Fetch ALL RECORDs.
  * 
@@ -291,3 +314,5 @@ function async_saveLine(line,fn_success,fn_error)
 		'error': fn_error
 	});
 }
+
+

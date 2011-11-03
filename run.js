@@ -336,7 +336,7 @@ app.post('/saveLine',function(req,res){
 
 });
 
-app.get('/listFile',function(req,res){
+app.get('/fetchListFile',function(req,res){
 
 	lists3.client.get('/').on('response', function(fres){
 		if('200' == fres.statusCode)
