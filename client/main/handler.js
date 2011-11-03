@@ -340,18 +340,18 @@ function handlerUploadFile()
 					 .appendTo(dom_form);	
 	jQuery(dom_bucket).attr({'type':'text','name':'bucket'})
 					 .appendTo(dom_form);	
-	jQuery(dom_trigger).attr({'type':'submit'}).appendTo(dom_form);
-
+	jQuery(dom_trigger).attr({'type':'button'}).val('上傳')
+					 .click(function(){
+						var fname = jQuery(this).find('input[name="file"]').val();
+						handlerNewLine('/upload',"(非標準未處理檔名)："+fname
+											,enumeration.type.line.instruction);
+						jQuery(dom_form).submit();
+					  })
+					 .appendTo(dom_form);
 	
 	var dom_content = jQuery('#'+config.id.command)
 						.find('.'+config.styleclass.command.content)
 						.eq(0)[0];
 
-	jQuery(dom_form).submit(function(){
-			var fname = jQuery(this).find('input[name="file"]').val();
-			handlerNewLine('/upload',"(非標準未處理檔名)："+fname
-								,enumeration.type.line.instruction);
-			
-		})
-		.appendTo(dom_content);
+	jQuery(dom_form).appendTo(dom_content);
 }
