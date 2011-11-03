@@ -150,8 +150,7 @@ function receiverListFile(finfos)
  * @return None
  * @require jQuery
  * @modify The view.
- * @effect Render and binding event on the post wall 
- *			and show them on the view.
+ * @effect ...  
  */
 function receiverListFileBucket(b_finfos)
 {
@@ -167,7 +166,33 @@ function receiverListFileBucket(b_finfos)
 		}
 	}
 	
-	handlerNewLine(config.instruction.listfile.name+bucket
-					,strlist
+	handlerNewLine(config.instruction.listfile.name
+					,'['+bucket+']'+';;'+strlist
+					,enumeration.type.line.log);
+}
+
+/*
+ * Handling the file buckets.
+ * 
+ * @param [String] buckets
+ * @return None
+ * @require jQuery
+ * @modify The view.
+ * @effect ...
+ */
+function receiverListBucket(buckets)
+{
+	var strbuckets = "";
+	if(0 != buckets.length)
+	{
+		strbuckets = buckets[0];
+		for(var itr = 1;itr != buckets.length;itr++)
+		{
+			strbuckets += (';;'+buckets[itr]);
+		}
+	}
+	
+	handlerNewLine(config.instruction.listbucket.name
+					,strbuckets
 					,enumeration.type.line.log);
 }

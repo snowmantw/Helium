@@ -361,26 +361,9 @@ app.get('/fetchListFile',function(req,res){
 });
 
 app.get('/fetchListFileBucket',function(req,res){
-	lists3.client(req.param('bucket')).get('/')
-		.on('response', function(fres){
-			if('200' == fres.statusCode)
-			{
-				fres.setEncoding('utf8');
-				fres.on('data', function(xml){
-					var finfos = (JSON.parse((parser.toJson(xml)))
-									.ListBucketResult
-									.Contents);
-					var fnames = [];
-					for(var itr = 0 ; itr != finfos.length ; itr++)
-					{
-						var finfo = finfos[itr];
-						fnames.push(finfo.Key);
-					}
-					res.end(JSON.stringify(
-						{'bucket':req.param('bucket'),'fnames':fnames}));
-				});
-			}
-		}).end();
+
+	//TODO: CHEATING
+	res.end(JSON.stringify(['cad2011task05']));
 });
 
 

@@ -316,3 +316,12 @@ function handlerListFile(name,bucket)
 	handlerNewLine('/listfile',bucket
 						,enumeration.type.line.instruction);
 }
+
+
+function handlerListBucket(name)
+{
+	async_fetchListBucket(receiverListBucket);
+
+	handlerNewLine('/listbucket',''
+						,enumeration.type.line.instruction);
+}

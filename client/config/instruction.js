@@ -27,4 +27,7 @@ config.instruction.list.file = {};
 config.instruction.list.file.name = '[List Files]';
 
 config.instruction.listfile = {};
-config.instruction.listfile.name = '[List Bucket File]:';
+config.instruction.listfile.name = '[Bucket Files]';
+
+config.instruction.listbucket = {};
+config.instruction.listbucket.name = '[List Buckets]';
