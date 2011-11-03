@@ -30,7 +30,7 @@ function dispatchInstruction(ins,params)
 		assoc_handler['read'] = handlerRead;
 		assoc_handler['post'] = handlerPost;
 		/*assoc_handler['listfile'] = handlerListFileBucket;*/
-		assoc_handler['list'] = handlerListFile;*/
+		assoc_handler['list'] = handlerListFile;
 		assoc_handler['log']  = handlerLog;
 	}
 	else
