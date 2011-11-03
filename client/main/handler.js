@@ -331,11 +331,14 @@ function handlerUploadFile()
 	//make the upload form.
 	var dom_form = document.createElement('form');
 	var dom_input = document.createElement('input');
+	var dom_bucket = document.createElement('input');
 	var dom_trigger = document.createElement('input');
 
 	jQuery(dom_form).attr({  'method':'POST','action':'/uploadFile'
 							,'enctype':'multipart/form-data'})
 	jQuery(dom_input).attr({'type':'file','name':'file'})
+					 .appendTo(dom_form);	
+	jQuery(dom_bucket).attr({'type':'text','name':'bucket'})
 					 .appendTo(dom_form);	
 	jQuery(dom_trigger).attr({'type':'submit'}).appendTo(dom_form);
 

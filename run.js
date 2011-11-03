@@ -406,10 +406,29 @@ app.post('/uploadFile',function(req,res){
 		if (err) {
 		  next(err);
 		} else {
-		  console.log('\nuploaded %s to %s'
-			, files.file.filename
-			, files.file.path);
-		  res.redirect('/');
+			var bucket = fields.bucket.value;
+			var name = files.file.filename;
+			var tmp_path = files.file.filename;
+
+			var client = lists3.client(bucket);
+/*
+
+			fs.readFile(tmp_path, function(err, buf){
+			  var freq = client.put('/'+filename, {
+				  'Content-Length': buf.length
+				, 'Content-Type': 'application/octet-stream'
+			  });
+			  freq.on('response', function(fres){
+				if (200 == fres.statusCode) {
+				  console.log('saved to %s', fres.url);
+				}
+			  });
+			  freq.end(buf);
+				
+			  res.redirect('/');
+			});
+*/
+			res.end(bucket+";;"+name+";;"+tmp_path+";;");
 		}
 	  });
 })
