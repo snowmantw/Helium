@@ -361,6 +361,8 @@ app.get('/fetchListFile',function(req,res){
 });
 
 app.get('/fetchListFileBucket',function(req,res){
+req.end(req.param('bucket'));
+/*
 
 	lists3.client(req.param('bucket')).get('/')
 		.on('response', function(fres){
@@ -382,6 +384,7 @@ app.get('/fetchListFileBucket',function(req,res){
 				});
 			}
 		}).end();
+*/
 });
 
 
