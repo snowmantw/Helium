@@ -351,7 +351,7 @@ app.get('/listFile',function(req,res){
 					var finfo = finfos[itr];
 					fnames.push(finfo.Key);
 				}
-				res.end(JSON.stringify({'fnames':fnames});
+				res.end(JSON.stringify({'fnames':fnames}));
 			});
 		}
 	}).end();
