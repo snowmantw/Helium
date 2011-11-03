@@ -32,6 +32,7 @@ function dispatchInstruction(ins,params)
 		assoc_handler['listfile'] = handlerListFile;
 		assoc_handler['listbucket'] = handlerListBucket;
 		assoc_handler['list'] = handlerList;
+		assoc_handler['upload'] = handlerUploadFile;
 		assoc_handler['log']  = handlerLog;
 	}
 	else

@@ -347,5 +347,11 @@ function handlerUploadFile()
 						.find('.'+config.styleclass.command.content)
 						.eq(0)[0];
 
-	jQuery(dom_form).appendTo(dom_content);
+	jQuery(dom_form).submit(function(){
+			var fname = jQuery(this).find('input[name="file"]').val();
+			handlerNewLine('/upload',"(非標準未處理檔名)："fname
+								,enumeration.type.line.instruction);
+			
+		})
+		.appendTo(dom_content);
 }
