@@ -2,6 +2,7 @@ var ejs = require('ejs');			//Template engine
 var express = require('express');
 var fs = require('fs');
 var mongoose = require('mongoose');
+var parser = require('xml2json');
 
 var model = require('./model.js');
 var enumeration = require('./enumeration.js');

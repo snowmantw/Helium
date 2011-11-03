@@ -1,6 +1,5 @@
 var fs = require('fs');
 var knox = require('knox');
-var parser = require('xml2json');
 
 var aws = require('./aws.js');
 
