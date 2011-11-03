@@ -320,7 +320,7 @@ function handlerListFile(name,bucket)
 
 function handlerListBucket(name)
 {
-	async_fetchListFileBucket(receiverListBucket);
+	async_fetchListBucket(receiverListBucket);
 
 	handlerNewLine('/listbucket',''
 						,enumeration.type.line.instruction);

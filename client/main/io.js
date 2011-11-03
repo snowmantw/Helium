@@ -1,4 +1,16 @@
 
+
+function async_fetchListBucket(fn_success,fn_error)
+{
+	jQuery.ajax({
+		'url': config.api.fetchListBucket,
+		'type': 'GET',
+		'dataType': 'json',
+		'success': fn_success,
+		'error': fn_error
+	});
+}
+
 /*
  * List S3's file infos.
  * 
