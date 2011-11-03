@@ -343,7 +343,7 @@ function handlerUploadFile()
 	jQuery(dom_trigger).attr({'type':'button'}).val('上傳')
 					 .click(function(){
 							var fname = jQuery(dom_input).val();
-							var buckey = jQuery(dom_bucket).val();
+							var bucket = jQuery(dom_bucket).val();
 
 							var line = new Line(null
 												,enumeration.type.line.instruction
