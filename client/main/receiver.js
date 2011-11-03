@@ -132,7 +132,7 @@ function receiverListFile(finfos)
 	if(0 != finfos.fnames.length)
 	{
 		strlist = finfos.fnames[0];
-		for(var itr = 1 ;finfos.fnames.length;itr++)
+		for(var itr = 1 ;itr != finfos.fnames.length;itr++)
 		{
 			var fname = finfos.fnames[itr];
 			strlist += (';;'+fname);
