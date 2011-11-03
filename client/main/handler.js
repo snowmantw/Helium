@@ -337,11 +337,20 @@ function handlerUploadFile()
 	jQuery(dom_form).attr({  'method':'POST','action':'/uploadFile'
 							,'enctype':'multipart/form-data'})
 	jQuery(dom_input).attr({'type':'file','name':'file'})
-					 .appendTo(dom_form);	
+					 .appendTo(dom_form);
 	jQuery(dom_bucket).attr({'type':'text','name':'bucket'})
 					 .appendTo(dom_form);	
 	jQuery(dom_trigger).attr({'type':'button'}).val('上傳')
 					 .click(function(){
+
+							if("" == jQuery(dom_bucket).val()){ 
+								handlerNewLine('/upload'
+												,"[ERROR] Bucket 名稱必須指定！"
+												,enumeration.type.line.error);
+
+								return;
+							}
+
 							var fname = jQuery(dom_input).val();
 							var bucket = jQuery(dom_bucket).val();
 
