@@ -361,9 +361,6 @@ app.get('/fetchListFile',function(req,res){
 });
 
 app.get('/fetchListFileBucket',function(req,res){
-res.end(req.param('bucket'));
-/*
-
 	lists3.client(req.param('bucket')).get('/')
 		.on('response', function(fres){
 			if('200' == fres.statusCode)
@@ -384,7 +381,6 @@ res.end(req.param('bucket'));
 				});
 			}
 		}).end();
-*/
 });
 
 
