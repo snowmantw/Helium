@@ -57,8 +57,9 @@ app.configure(function()
 	app.use('/style',express.static( cbuildir + '/style'));
 	app.use('/media',express.static( cbuildir + '/media'));
 	app.use('/config',express.static( cbuildir + '/config'));
-
-	form({ keepExtensions: true });
+	app.use(form({keepExtensions: true}));
+	app.use(express.methodOverride());
+	app.use(app.router);
 });
 
 app.get('/',function(req,res){
@@ -297,7 +298,9 @@ app.post('/saveComment',function(req,res){
 			comment.author = req.body.comment.author;
 			comment.date = Number(req.body.comment.date);
 			comment.id = generateCommentID(pid,comment);
-			comment.title = 'RE:[ '+post.title+' ]';	//TODO:Tricky: Comment has NO Title BUT must show it.
+
+			//TODO:Tricky: Comment has NO Title BUT must show it.
+			comment.title = 'RE:[ '+post.title+' ]';	
 
 			post.comments.push(comment);
 
