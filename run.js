@@ -414,6 +414,8 @@ app.post('/uploadFile',function(req,res){
 			var client = lists3.client(bucket);
 
 			fs.readFile(tmp_path, function(err, buf){
+				if(err) { throw new Error(err);}
+
 			  var freq = client.put('/'+name, {
 				  'Content-Length': buf.length
 				, 'Content-Type': 'application/octet-stream'
