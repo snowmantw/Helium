@@ -2,7 +2,7 @@ var fs = require('fs');
 var knox = require('knox');
 var parser = require('xml2json');
 
-var aws = require('aws.js');
+var aws = require('./aws.js');
 
 exports.client = knox.createClient({
     key: aws.key
