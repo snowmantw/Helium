@@ -281,7 +281,7 @@ function handlerShell(params)
  *			and change the view to shell mode.
  *
  */
-function handlerList(name,type)
+function handleList(name,type)
 {
 	switch(type)
 	{
@@ -295,4 +295,23 @@ function handlerList(name,type)
 			handlerNewLine('/list',config.instruction.list.error
 								,enumeration.type.line.error);
 	}
+}
+
+/*
+ * Handler of `/listfile` instruction.
+ * 
+ * @param String name: 'listfile' instruction name.
+ * @param String bucket: The bucket name.
+ * @return None
+ * @modify The database and view.
+ * @effect Write a new log for this instruction 
+ *			and change the view to shell mode.
+ *
+ */
+function handleListFile(name,bucket)
+{
+	async_fetchListFileBucket(bucket,receiverListFileBucket);
+
+	handlerNewLine('/listfile',bucket
+						,enumeration.type.line.instruction);
 }

@@ -1,4 +1,26 @@
 
+/*
+ * List S3's file infos.
+ * 
+ * @param String bucket
+ * @param Function fn_success
+ * @param Function fn_error
+ * @receive String: {'fnames':[]}
+ * @return None
+ * @require None
+ * @modify Data flow.
+ * @effect Receive the data and forward it to the handler.
+ */
+function async_fetchListFileBucket(bucket,fn_success,fn_error)
+{
+	jQuery.ajax({
+		'url': config.api.fetchListFileBucket,
+		'type': 'GET',
+		'dataType': 'json',
+		'success': fn_success,
+		'error': fn_error
+	});
+}
 
 /*
  * List S3's file infos.

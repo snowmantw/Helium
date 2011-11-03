@@ -337,8 +337,9 @@ app.post('/saveLine',function(req,res){
 });
 
 app.get('/fetchListFile',function(req,res){
+	var default_bucket = 'cad2011task05';
 
-	lists3.client.get('/').on('response', function(fres){
+	lists3.client(default_bucket).get('/').on('response', function(fres){
 		if('200' == fres.statusCode)
 		{
 			fres.setEncoding('utf8');
@@ -357,6 +358,30 @@ app.get('/fetchListFile',function(req,res){
 		}
 	}).end();
 
+});
+
+app.get('/fetchListFileBucket',function(req,res){
+
+	lists3.client(req.body.bucket).get('/')
+		.on('response', function(fres){
+			if('200' == fres.statusCode)
+			{
+				fres.setEncoding('utf8');
+				fres.on('data', function(xml){
+					var finfos = (JSON.parse((parser.toJson(xml)))
+									.ListBucketResult
+									.Contents);
+					var fnames = [];
+					for(var itr = 0 ; itr != finfos.length ; itr++)
+					{
+						var finfo = finfos[itr];
+						fnames.push(finfo.Key);
+					}
+					res.end(JSON.stringify(
+						{'bucket':req.body.bucket,'fnames':fnames}));
+				});
+			}
+		}).end();
 });
 
 

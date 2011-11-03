@@ -29,7 +29,7 @@ function dispatchInstruction(ins,params)
 		assoc_handler['linenumber'] = handlerLineNumber;
 		assoc_handler['read'] = handlerRead;
 		assoc_handler['post'] = handlerPost;
-		assoc_handler['list'] = handlerList;
+		assoc_handler['listfile'] = handlerListFile;
 		assoc_handler['log']  = handlerLog;
 	}
 	else

@@ -142,3 +142,32 @@ function receiverListFile(finfos)
 	handlerNewLine(config.instruction.list.file.name,strlist
 					,enumeration.type.line.log);
 }
+
+/*
+ * Handling the file infomations received event (bucket ver).
+ * 
+ * @param {bucket:String,fnames:[String]} b_finfos
+ * @return None
+ * @require jQuery
+ * @modify The view.
+ * @effect Render and binding event on the post wall 
+ *			and show them on the view.
+ */
+function receiverListFileBucket(b_finfos)
+{
+	var bucket = b_finfos.bucket;
+	var strlist = "";
+	if(0 != b_finfos.fnames.length)
+	{
+		strlist = b_finfos.fnames[0];
+		for(var itr = 1 ;itr != b_finfos.fnames.length;itr++)
+		{
+			var fname = b_finfos.fnames[itr];
+			strlist += (';;'+fname);
+		}
+	}
+	
+	handlerNewLine(config.instruction.listfile.name+bucket
+					,strlist
+					,enumeration.type.line.log);
+}
