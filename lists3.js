@@ -7,7 +7,7 @@ var aws = require('./aws.js');
 exports.client = knox.createClient({
     key: aws.key
   , secret: aws.secret
-  , bucket: aws.bucket.task05
+  , bucket: aws.s3bucket.task05
 });
 
 
