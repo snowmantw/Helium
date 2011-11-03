@@ -406,12 +406,12 @@ app.post('/uploadFile',function(req,res){
 		if (err) {
 		  next(err);
 		} else {
-			var bucket = fields.bucket;
+			//No need to do anything more to get val.
+			var bucket = fields.bucket;	
 			var name = files.file.filename;
 			var tmp_path = files.file.filename;
 
-			//var client = lists3.client(bucket);
-/*
+			var client = lists3.client(bucket);
 
 			fs.readFile(tmp_path, function(err, buf){
 			  var freq = client.put('/'+filename, {
@@ -427,8 +427,6 @@ app.post('/uploadFile',function(req,res){
 				
 			  res.redirect('/');
 			});
-*/
-			res.end(JSON.stringify(fields));
 		}
 	  });
 })
