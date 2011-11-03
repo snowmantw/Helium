@@ -282,7 +282,7 @@ function handlerShell(params)
  *			and change the view to shell mode.
  *
  */
-function handleList(name,type)
+function handlerList(name,type)
 {
 	switch(type)
 	{
@@ -309,7 +309,7 @@ function handleList(name,type)
  *			and change the view to shell mode.
  *
  */
-function handleListFile(name,bucket)
+function handlerListFile(name,bucket)
 {
 	async_fetchListFileBucket(bucket,receiverListFileBucket);
 
