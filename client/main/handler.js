@@ -342,13 +342,13 @@ function handlerUploadFile()
 					 .appendTo(dom_form);	
 	jQuery(dom_trigger).attr({'type':'button'}).val('上傳')
 					 .click(function(){
-							var fname = jQuery(this)
-											.find('input[name="file"]').val();
+							var fname = jQuery(dom_input).val();
+							var buckey = jQuery(dom_bucket).val();
 
 							var line = new Line(null
 												,enumeration.type.line.instruction
 												,'/upload'
-												,"(非標準未處理檔名)："+fname
+												,"(未處理檔名)："+fname+" 至 "+bucket
 												,(new Date(Date.now()).getTime()));
 
 							//Save, refetch and update all.
