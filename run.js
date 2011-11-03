@@ -360,7 +360,7 @@ app.get('/fetchListFile',function(req,res){
 
 });
 
-app.get('/fetchListBucketFile',function(req,res){
+app.get('/fetchListFileBucket',function(req,res){
 
 	lists3.client(req.param('bucket')).get('/').on('response', function(fres){
 		if('200' == fres.statusCode)
