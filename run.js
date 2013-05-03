@@ -3,7 +3,7 @@ var express = require('express');
 var fs = require('fs');
 var mongoose = require('mongoose');
 var parser = require('xml2json');
-var form = require('connect-form');
+var form = require('./node_modules/connect-form/lib/connect-form.js');
 
 var model = require('./model.js');
 var enumeration = require('./enumeration.js');
@@ -11,11 +11,14 @@ var lists3 = require('./lists3.js');
 
 MODELS = [];
 
+DBURL  = "vanilla"
+DBNAME = "helium";
+DBPORT = "27017";
+DBUSER = "helium";
+
 function initializeDatabase()
 {
-	var URI = 'mongodb://heroku_app1355379:'
-			+ 'vulq274lo53jnbhtmgbshlsutl@'
-			+'dbh56.mongolab.com:27567/heroku_app1355379';
+	var URI = 'mongodb://'+DBUSER+'@'+DBURL+':'+DBPORT+'/'+DBNAME;
 
 	mongoose.connect(URI);
 	
@@ -196,7 +199,7 @@ app.get('/fetchSummary',function(req,res){
 	var id = req.param('id');
 
 	MODELS['Post']
-		.findOne({'id':id},['id','title','author','date'],handler_fetchDone);
+		.findOne({'id':id},{'id':1,'title':1,'author':1,'date':1},handler_fetchDone);
 });
 
 app.get('/fetchComments',function(req,res){
@@ -209,10 +212,10 @@ app.get('/fetchComments',function(req,res){
 		res.end(JSON.stringify(doc.comments));
 	}
 
-	var id_post = req.param('id');
+	var id_post = String(req.param('id'));
 
 	MODELS['Post']
-		.findOne({'id':id_post},['comments'],handler_fetchDone);
+		.findOne({'id':id_post},'comments',handler_fetchDone);
 });
 
 app.del('/deletePost',function(req,res){
@@ -235,7 +238,7 @@ app.del('/deleteComment',function(req,res){
 
 	MODELS['Post']
 		.findOne({'id':PostIDFromCommentID(req.body.id)},
-				 ['id','comments'],function(err,doc){
+				 {'id':1,'comments':1},function(err,doc){
 
 				if(err) { throw new "/deleteComment ERROR : "+err.toString()}
 

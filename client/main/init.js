@@ -64,10 +64,13 @@ function initEventRead()
  */
 function initDecorateCommandLine()
 {
-	//Default: do NOT show line numbers.
-	setPromptRenderNormal();
+	// do NOT show line numbers.
+	//setPromptRenderNormal();
+
+        // Will enable linenumber.
+        setPromptRenderLineNumber();
 	blinkCommandPrompt();
-	makeCommandHelperEnter()
+	makeCommandHelperEnter();
 }
 
 /*
